@@ -1,2 +1,2 @@
-You can visit my website\n
+You can visit my website
 dogukan01.github.io

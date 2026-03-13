@@ -116,56 +116,76 @@ footer p {
     color: #888;
 }
 
-/* İletişim Formu Tasarımı (Box Model) */
+/* Genel Kutu Yapısı */
 .contact-container {
-    width: 600px;           /* Belgeye göre yaklaşık genişlik */
-    margin: 50px auto;      /* Sayfayı ortalar ve üstten boşluk bırakır */
-    padding: 30px;          /* İç boşluk */
-    border: 2px solid #ccc; /* Belirgin kenarlık */
-    border-radius: 10px;    /* Köşe yuvarlaması */
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Elemanlar arasında daha fazla boşluk */
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Form başlığı için */
+/* Başlık */
 .contact-container h2 {
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
+}
+
+/* Form Elemanları */
+.contact-container form {
+    display: flex !important;
+    flex-direction: column !important; /* Form elemanlarını yukarıdan aşağıya sıralar */
+    gap: 10px !important; /* Elemanlar arasındaki boşluk azaltıldı */
+    align-items: stretch !important; /* Elemanları tam genişlikte hizalar */
 }
 
 /* Etiketler (Label) */
 .contact-container label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px !important; /* Etiket ile form elemanı arasındaki boşluk azaltıldı */
+    line-height: 1.5; /* Satır arası boşluk eklendi */
     font-weight: bold;
+    color: #555;
 }
 
-/* Giriş alanları (Input, Select, Textarea) */
+/* Girdi Alanları (Input, Select, Textarea) */
 .contact-container input, 
 .contact-container select, 
 .contact-container textarea {
-    width: 100%;            /* Genişliği tam kaplar */
-    padding: 10px;          /* Yazı yazarken ferah durması için */
-    margin-bottom: 15px;    /* Elemanlar arası boşluk */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Padding'in genişliği etkilememesi için önemli */
+    width: 100% !important;
+    padding: 8px !important; /* Daha dengeli bir görünüm için padding azaltıldı */
+    margin: 0 !important;
+    margin-bottom: 12px !important; /* Elemanlar arasındaki boşluk azaltıldı */
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important; /* Satır arası boşluk zorunlu kılındı */
 }
 
 /* Gönder Butonu */
 .contact-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #2c3e50; /* Örnek koyu renk */
+    background-color: #4caf50;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Buton üzerine gelindiğinde (Hover) */
 .contact-container button:hover {
-    background-color: #34495e;
+    background-color: #45a049;
+}
+
+/* Form elemanları ve etiketler için kesin boşluk düzenlemeleri */
+.contact-container * {
+    box-sizing: border-box; /* Tarayıcı varsayılanlarını etkisiz hale getirir */
 }

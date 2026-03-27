@@ -1,0 +1,287 @@
+/* Genel Sayfa Ayarları */
+body {
+    background-color: #f4f5f7;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Sayfayı ortalayan ve beyaz arka plan veren ana kutu */
+.sayfa-kapsayici {
+    background-color: #f8f9ff;
+    width: 900px;
+    margin: 0 auto;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* 1. GRUP SEÇİCİ ŞARTI (h1 ve h2 etiketlerine aynı anda stil verme) */
+h1, h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Üst kısım: Başlık ve menüyü yan yana getirme */
+.baslik-menu-alani {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Menü listesi (ul) noktalarını kaldırma */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* MENÜ ŞARTI: display: inline-block ile menüyü yan yana yapma */
+nav ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* 1. HİYERARŞİK SEÇİCİ ŞARTI (nav içindeki ul, onun içindeki li, onun içindeki a) */
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+/* HOVER ŞARTI: Linklerin üzerine gelince renk değişimi */
+nav ul li a:hover, nav ul li a.aktif {
+    background-color: #8da4f7;
+    color: white;
+}
+
+.aciklama-metni {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* KUTULARI YAN YANA GETİRME ŞARTI (display mantığı) */
+.icerik-alani {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Sol ve sağ kutuların genel boyutları */
+.sol-icerik, .sag-menu {
+    width: 48%; /* İki kutu yanyana sığsın diye genişlik verdik */
+    padding: 20px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Sol kutu renklendirmesi */
+.sol-icerik {
+    background-color: #fdf3d8;
+    border: 1px solid #f1e2b3;
+}
+
+/* Sağ kutu renklendirmesi */
+.sag-menu {
+    background-color: #e2f0f6;
+    border: 1px solid #c7e1ed;
+}
+
+/* 2. HİYERARŞİK SEÇİCİ ŞARTI ve METİN DÜZENLEME ŞARTI (font-size, color, line-height, text-align) */
+main section p, main aside p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.8; /* Satır yüksekliği */
+    text-align: justify; /* İki yana yaslama */
+    margin-bottom: 15px;
+}
+
+/* Footer (Alt bilgi) Alanı */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+footer p {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Genel Kutu Yapısı */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Elemanlar arasında daha fazla boşluk */
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Başlık */
+.contact-container h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Elemanları */
+.contact-container form {
+    display: flex !important;
+    flex-direction: column !important; /* Form elemanlarını yukarıdan aşağıya sıralar */
+    gap: 10px !important; /* Elemanlar arasındaki boşluk azaltıldı */
+    align-items: stretch !important; /* Elemanları tam genişlikte hizalar */
+}
+
+/* Etiketler (Label) */
+.contact-container label {
+    display: block;
+    margin-bottom: 6px !important; /* Etiket ile form elemanı arasındaki boşluk azaltıldı */
+    line-height: 1.5; /* Satır arası boşluk eklendi */
+    font-weight: bold;
+    color: #555;
+}
+
+/* Girdi Alanları (Input, Select, Textarea) */
+.contact-container input, 
+.contact-container select, 
+.contact-container textarea {
+    width: 100% !important;
+    padding: 8px !important; /* Daha dengeli bir görünüm için padding azaltıldı */
+    margin: 0 !important;
+    margin-bottom: 12px !important; /* Elemanlar arasındaki boşluk azaltıldı */
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important; /* Satır arası boşluk zorunlu kılındı */
+}
+
+/* Gönder Butonu */
+.contact-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-container button:hover {
+    background-color: #45a049;
+}
+
+/* Buton Grubu - Butonları yan yana getirme */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-group button {
+    flex: 1;
+    max-width: 150px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+/* Gönder Butonu Stili */
+.button-group button[type="submit"] {
+    background-color: #4caf50;
+}
+
+.button-group button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Temizle Butonu Stili */
+.button-group button[type="reset"] {
+    background-color: #f44336;
+}
+
+.button-group button[type="reset"]:hover {
+    background-color: #da190b;
+}
+
+/* Fieldset Stilleri */
+.contact-container fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background-color: #f8f9fa;
+}
+
+.contact-container legend {
+    font-weight: bold;
+    color: #555;
+    padding: 0 5px;
+    margin-left: -5px;
+}
+
+/* Radio Buttons Grubu */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* Checkbox Grubu */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* Form elemanları ve etiketler için kesin boşluk düzenlemeleri */
+.contact-container * {
+    box-sizing: border-box; /* Tarayıcı varsayılanlarını etkisiz hale getirir */
+}

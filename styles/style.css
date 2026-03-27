@@ -1,169 +1,190 @@
-/* Genel Sıfırlamalar ve Ayarlar */
+/* Genel Ayarlar */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f0f0f5;
-    color: #333;
+    background-color: #f2f3f5;
+    color: #444;
 }
 
-/* Ana Kapsayıcı (Wrapper) */
+/* Ana Kapsayıcı (100vh Kuralı) */
 .wrapper {
     display: flex;
-    flex-direction: column; /* Dikey yerleşim [cite: 11] */
-    height: 100vh; /* Toplam 100vh  */
-    width: 100%;
-    padding: 10px 20px;
-    gap: 10px; /* Bölümler arası boşluk */
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: 15px 30px;
+    gap: 15px;
+    overflow-y: auto; /* Ekran küçülürse diye kaydırma çubuğu */
 }
 
-/* Ortak Kutu Stilleri (Tasarımdaki gri arka planlı çerçeveler) */
-.navbar, .hero, .cards-section, .flex-grow-section, .footer {
-    background-color: #f5f5fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+/* Ortak Kart ve Bölüm Stilleri */
+.section-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Buton Stilleri */
+.section-header, .section-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f0f1f3;
+}
+
+.section-header {
+    justify-content: space-between;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.section-footer {
+    border-top: 1px solid #dcdcdc;
+    gap: 10px;
+}
+
+.section-body {
+    padding: 15px;
+}
+
+/* Etiket (Tag) Stilleri */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: #e2e4e8;
+    color: #666;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+/* Buton ve Çizgi (Skeleton) Stilleri */
 .btn {
     padding: 8px 16px;
-    background-color: #7b9eed;
+    background-color: #8da9ed;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-weight: bold;
 }
-.btn-green { background-color: #82b97c; }
-.btn-orange { background-color: #edaf81; }
+.btn-green { background-color: #8ebd87; }
+.btn-orange { background-color: #f2b485; }
 
+.lines { margin-top: 10px; }
 .line {
-    height: 4px;
-    background-color: #ddd;
-    border-radius: 2px;
-    margin: 5px 0;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin: 6px 0;
     width: 100%;
 }
-.line.short { width: 60%; }
+.line.short { width: 50%; }
 
-/* 1) Navbar */
-.navbar {
-    height: 10vh; /* [cite: 15] */
-    display: flex;
-    justify-content: space-between; /* [cite: 17] */
-    align-items: center; /* [cite: 18] */
+/* --- 1) Navbar --- */
+.navbar-section {
+    flex-shrink: 0;
 }
-
+.navbar-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #555;
 }
-
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
-
 .nav-links a {
     text-decoration: none;
-    color: #555;
+    color: #666;
+    font-size: 0.9rem;
 }
 
-/* 2) Hero Bölümü */
-.hero {
-    height: 30vh; /* [cite: 20] */
+/* --- 2) Hero --- */
+.hero-body {
     display: flex;
-    flex-direction: row; /* [cite: 23] */
-    justify-content: space-between; /* [cite: 24] */
-    align-items: stretch; /* [cite: 25] */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
     gap: 20px;
+    height: 150px; /* Esneme efekti için sabit yükseklik */
 }
-
 .hero-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
 }
-
 .hero-image {
     flex: 1;
-    background-color: #e5e5ed;
-    border-radius: 8px;
+    background-color: #e8e9ec;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem; /* Placeholder ikon boyutu */
+    font-size: 3rem;
 }
 
-/* 3) Kartlar Bölümü */
-.cards-section {
-    height: 30vh; /* [cite: 27] */
-    display: flex; /* [cite: 30] */
-    flex-wrap: wrap; /* [cite: 31] */
-    gap: 15px; /* [cite: 32] */
-    justify-content: flex-start;
-    overflow-y: auto; /* Kartlar taşarsa kaydırma çubuğu çıksın diye */
+/* --- 3) Kartlar --- */
+.cards-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-
 .card {
-    flex: 1 1 calc(33.333% - 15px); /* 3 kolonlu yapı, sığmazsa alt satıra iner */
-    min-width: 150px;
-    background-color: #fafafa;
-    border: 1px solid #ddd;
+    flex: 1;
+    min-width: 180px;
+    background-color: #f8f9fa;
+    border: 1px solid #dcdcdc;
     border-radius: 6px;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
-/* 4) Flex Grow Uygulama */
-.flex-grow-section {
-    height: 20vh; /* [cite: 34] */
+/* --- 4) Flex Grow --- */
+.grow-body {
     display: flex;
-    align-items: stretch; /* Kutular esnesin [cite: 39] */
-    gap: 20px;
+    align-items: stretch;
+    gap: 15px;
+    height: 120px;
 }
-
 .grow-box {
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 6px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #dcdcdc;
+}
+.box1 { flex-grow: 1; background-color: #e6eff9; }
+.box2 { flex-grow: 2; background-color: #e9f2db; }
+.box3 { flex-grow: 1; background-color: #fbebd8; }
+
+/* --- 5) Footer --- */
+.footer-section {
+    flex-shrink: 0;
     align-items: center;
-    border: 1px solid #ddd;
-}
-
-.box1 {
-    flex-grow: 1; /* [cite: 36] */
-    background-color: #e6f0ff;
-}
-
-.box2 {
-    flex-grow: 2; /* [cite: 37] */
-    background-color: #e6f5d0;
-}
-
-.box3 {
-    flex-grow: 1; /* [cite: 38] */
-    background-color: #ffead1;
-}
-
-/* 5) Footer */
-.footer {
-    height: 10vh; /* [cite: 41] */
-    display: flex;
-    justify-content: center; /* [cite: 43] */
-    align-items: center; /* [cite: 44] */
-    color: #666;
+    justify-content: center;
+    padding: 15px;
+    color: #777;
+    font-size: 0.9rem;
 }

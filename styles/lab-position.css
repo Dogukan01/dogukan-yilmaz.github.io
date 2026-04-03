@@ -26,7 +26,7 @@ body {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    cursor: pointer; /* Cursor Değişimi 1 */
+    cursor: arrow; /* Cursor Değişimi 1 - Ana sayfa */
     transition: transform 0.2s, background-color 0.2s; /* Geçiş Efekti */
     z-index: 100;
 }
@@ -50,7 +50,7 @@ body {
     padding: 15px 25px;
     border-radius: 25px;
     font-weight: bold;
-    cursor: pointer; /* Cursor Değişimi 2 */
+    cursor: help; /* Cursor Değişimi 2 - Yardım */
     box-shadow: 0 4px 15px rgba(123, 58, 236, 0.4);
     animation: pulse-animation 2s infinite; /* Basit Animasyon */
     z-index: 100;
@@ -63,7 +63,7 @@ body {
 
 @keyframes pulse-animation {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
@@ -101,16 +101,16 @@ body {
     border-radius: 6px;
     font-weight: bold;
     font-size: 13px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 10;
 }
 
 .badge-free {
-    top: 25px;
+    top: 65px;
     left: 25px;
     background-color: #fff3cd;
     color: #333;
-    cursor: pointer;
+    cursor: grab; /* Sürüklenebilir - Ücretsiz */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -124,7 +124,7 @@ body {
     right: 25px;
     background-color: #d4edda;
     color: #333;
-    cursor: pointer;
+    cursor: grab; /* Sürüklenebilir - Tarih */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -138,12 +138,20 @@ body {
     right: 25px;
     background-color: #ffe6e6;
     color: #333;
-    cursor: pointer; /* Cursor Değişimi 3 */
-    transition: transform 0.2s;
+    cursor: wait; /* Bekleniyor - Son Tarih */
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: bounce-animation 1s infinite;
+    box-shadow: 0 6px 16px rgba(255,100,100,0.3);
 }
 
 .badge-deadline:hover {
     transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255,100,100,0.4);
+}
+
+@keyframes bounce-animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
 
 .location-box {
@@ -156,14 +164,15 @@ body {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     z-index: 5;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    cursor: info; /* Bilgi işareti - Konum */
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .location-box:hover {
     background-color: #f8f9fa;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
 }
 
 /* Kart Metinleri */

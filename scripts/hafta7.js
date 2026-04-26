@@ -1,9 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Tema Değiştirme İşlemi
+    // 1. Tema Değiştirme İşlemi
     const btnTema = document.getElementById('btnTema');
-    const htmlElement = document.documentElement; // <html> etiketine erişim
+    const htmlElement = document.documentElement;
 
     btnTema.addEventListener('click', function() {
         const mevcutTema = htmlElement.getAttribute('data-bs-theme');
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Form İşlemleri
+    // 2. Form İşlemleri ve Gelişmiş Doğrulama
     const form = document.getElementById('kayitFormu');
     const formUyari = document.getElementById('formUyari');
     const sonucAlani = document.getElementById('sonucAlani');
@@ -30,24 +29,54 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Sayfanın yenilenmesini engeller
 
-        // Değerleri al
-        const adSoyad = document.getElementById('adSoyad').value.trim();
-        const eposta = document.getElementById('eposta').value.trim();
-        const bolum = document.getElementById('bolum').value.trim();
-        const sinif = document.getElementById('sinif').value;
-        const oturum = document.getElementById('oturum').value;
-        const katilim = document.getElementById('katilim').value;
-        const mesaj = document.getElementById('mesaj').value.trim();
-        const onay = document.getElementById('onay').checked;
+        // Form elemanlarını referans al
+        const adSoyadEl = document.getElementById('adSoyad');
+        const epostaEl = document.getElementById('eposta');
+        const bolumEl = document.getElementById('bolum');
+        const sinifEl = document.getElementById('sinif');
+        const oturumEl = document.getElementById('oturum');
+        const katilimEl = document.getElementById('katilim');
+        const onayEl = document.getElementById('onay');
+        const mesajEl = document.getElementById('mesaj'); // Mesaj alanı zorunlu değil
 
-        // Boş alan kontrolü
-        if (!adSoyad || !eposta || !bolum || !sinif || !oturum || !katilim || !onay) {
-            formUyari.classList.remove('d-none'); // Uyarıyı göster
-            return; // İşlemi durdur
+        // Zorunlu metin/seçim alanlarını bir dizide toplayalım
+        const zorunluAlanlar = [adSoyadEl, epostaEl, bolumEl, sinifEl, oturumEl, katilimEl];
+        let formGecerli = true;
+
+        // Her bir zorunlu alanı kontrol et
+        zorunluAlanlar.forEach(el => {
+            if (!el.value.trim()) {
+                el.classList.add('is-invalid'); // Boşsa kırmızı yap
+                formGecerli = false;
+            } else {
+                el.classList.remove('is-invalid'); // Doluysa kırmızılığı kaldır
+            }
+        });
+
+        // Checkbox onayını ayrıca kontrol et
+        if (!onayEl.checked) {
+            onayEl.classList.add('is-invalid');
+            formGecerli = false;
+        } else {
+            onayEl.classList.remove('is-invalid');
         }
 
-        // Hata yoksa uyarıyı gizle
+        // Eğer geçerli olmayan (boş) alan varsa işlemi durdur
+        if (!formGecerli) {
+            formUyari.classList.remove('d-none');
+            return;
+        }
+
+        // Hata yoksa uyarıyı gizle ve değerleri değişkenlere ata
         formUyari.classList.add('d-none');
+        
+        const adSoyad = adSoyadEl.value.trim();
+        const eposta = epostaEl.value.trim();
+        const bolum = bolumEl.value.trim();
+        const sinif = sinifEl.value;
+        const oturum = oturumEl.value;
+        const katilim = katilimEl.value;
+        const mesaj = mesajEl.value.trim();
 
         // Özet HTML'i oluştur
         const ozetHTML = `
@@ -78,17 +107,23 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
-        // Sonuç alanına yazdır ve sınıfını güncelle (tasarımı iyileştirmek için)
+        // Sonuç alanına yazdır
         sonucAlani.innerHTML = ozetHTML;
-        sonucAlani.className = "mt-4"; // Alert görünümünden standart dive geçir
+        sonucAlani.className = "mt-4"; 
         
-        // Forma odaklanmayı kaldırıp sonuca kaydır (UX iyileştirmesi)
+        // Sonuca yumuşak kaydırma
         document.getElementById('sonuc').scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Formu temizle butonuna basınca sonuç alanını ve uyarıları da sıfırla
+    // Formu temizle butonuna basıldığında kırmızı çerçeveleri ve uyarıları da temizle
     btnTemizle.addEventListener('click', function() {
         formUyari.classList.add('d-none');
+        
+        // Tüm is-invalid sınıflarını formdaki elemanlardan kaldır
+        const hataliElemanlar = form.querySelectorAll('.is-invalid');
+        hataliElemanlar.forEach(el => el.classList.remove('is-invalid'));
+
+        // Sonuç alanını sıfırla
         sonucAlani.className = "alert alert-info rounded-4 p-4 text-center";
         sonucAlani.innerHTML = "Henüz başvuru özeti oluşturulmadı. Formu doldurduktan sonra sonuç burada görünecek.";
     });

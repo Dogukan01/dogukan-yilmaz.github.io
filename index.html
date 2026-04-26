@@ -1,52 +1,91 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Doğukan Yılmaz - Web Sayfası</title>
-    </head>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratuvar Ana Sayfası - Doğukan Yılmaz</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
 
-    <body>
-        <h1> Doğukan Yılmaz </h1>
-        <p>Bilgisayar Mühendisliği Öğrencisi | Web Programlama</p>
-        <ul>
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkımda</a></li>
-            <li><a href="interests.html">İlgi Alanlarım</a></li>
-            <li><a href="contact.html">İletişim</a></li>
-            <li><a href="new.html">İkili Menü Sayfası</a></li>
-            <li><a href="index2.html">Flex Sayfası</a></li>
-            <li><a href="lab-position.html">Laboratuvar Konum Değiştirme Sayfası</a></li>
-            <li><a href="not-hesaplama.html">Öğrenci Not Hesaplama</a></li>
-            <li><a href="birim-hesaplama.html">Birim Dönüştürücü</a></li>
-            <li><a href="hafta7.html">Hafta7 Uygulaması</a></li>
-        </ul>
+    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 main-card">
+        
+        <div class="text-center mb-5">
+            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 mb-3 fw-medium">Web Programlama Dersi</span>
+            <h1 class="display-6 fw-bold mb-3">Laboratuvar Ana Sayfası</h1>
+            <p class="text-secondary mx-auto mb-4" style="max-width: 600px;">
+                Bu sayfa GitHub Pages üzerinde yayınlanan laboratuvar uygulamalarına giriş için hazırlanmıştır. Aşağıdaki butondan hafta 7 uygulamasına geçebilirsiniz.
+            </p>
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="hafta7.html" class="btn btn-primary btn-lg rounded-3 px-4 shadow-sm">Hafta 7 Uygulamasına Git</a>
+                <a href="#haftalar" class="btn btn-light btn-lg rounded-3 px-4 border">Diğer Haftalar</a>
+            </div>
+        </div>
 
-        <h2>Hoş Geldiniz</h2>
-        <p>Bu web sitesi, Web Programlama dersi kapsamında hazırlanmış <b>örnek bir kişisel tanıtım sayfasıdır</b>. Amaç, HTML'in temel etiketlerini ve sayfa yapısını öğrenmektir.</p>
-        <p>Daha fazla bilgi için <i>Hakkımda</i> sayfasını ziyaret edebilirsiniz.</p>
+        <div id="haftalar" class="row g-3 justify-content-center">
+            
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="index.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Ana Sayfa</h6>
+                </a>
+            </div>
+            
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="about.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 2</h6>
+                    <small class="text-secondary">Hakkımda - İlgi ALanlarım - İletişim Sayfaları </small>
+                </a>
+            </div>
 
-        <h2>Hızlı Bilgiler</h2>
-        <ul>
-            <li>Üniversite: Marmara Üniversitesi</li>
-            <li>Bölüm: Bilgisayar Mühendisliği</li>
-            <li>İlgi Alanı: Veri Yapıları, Linux, C/C++</li>
-        </ul>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="ikili-menu.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 3</h6>
+                    <small class="text-secondary">İkili Menü Sayfası</small>
+                </a>
+            </div>
 
-        <h2>Öğrenme Hedeflerim</h2>
-        <ol>
-            <li>HTML temellerini öğrenmek</li>
-            <li>CSS ile sayfa tasarlamak</li>
-            <li>JavaScript ile etkileşim eklemek</li>
-            <li>ASP.NET Core ile dinamik site geliştirmek</li>
-        </ol>
-        <h2>Faydalı Bağlantılar</h2>
-        <p>Aşağıdaki kaynaklar web geliştirme öğrenirken faydalı olabilir:</p>
-        <ul>
-            <li><a href="https://developer.mozilla.org/tr/">MDN Web Docs</a></li>
-            <li><a href="https://www.w3schools.com/">W3Schools</a></li>
-            <li><a href="https://github.com/Dogukan01" target="_blank">GitHub Profilim</a></li>
-        </ul>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="flex_sayfasi.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 4</h6>
+                    <small class="text-secondary">Flexbox</small>
+                </a>
+            </div>
 
-        <hr>
-        <p>© 2026 Doğukan | Web Programlama Dersi</p>
-    </body>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="lab-position.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 5</h6>
+                    <small class="text-secondary">Position</small>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="not-hesaplama.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 6</h6>
+                    <small class="text-secondary">Öğrenci Not Hesaplama</small>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="birim-hesaplama.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 6</h6>
+                    <small class="text-secondary">Birim Dönüştürücü</small>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="hafta7.html" class="card week-card border shadow-sm rounded-4 h-100 p-3 text-center bg-light">
+                    <h6 class="fw-bold text-dark mb-1">Hafta 7</h6>
+                    <small class="text-secondary">Hafta 7 Uygulaması</small>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

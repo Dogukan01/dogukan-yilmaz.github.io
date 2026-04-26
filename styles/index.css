@@ -1,0 +1,27 @@
+/* Genel Arka Plan ve Hizalama */
+body {
+    background-color: #f4f6f9; /* Görseldeki gibi çok açık mavimsi/gri arka plan */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Ana Kapsayıcı Kart Genişliği */
+.main-card {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Hafta Kartlarına Hover (Üzerine Gelme) Efekti */
+.week-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    display: block;
+}
+
+.week-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1)!important;
+}
